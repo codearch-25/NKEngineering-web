@@ -7,7 +7,6 @@ import {
   Target, 
   Eye, 
   CheckCircle2, 
-  Trophy, 
   Users, 
   Building
 } from "lucide-react";
@@ -52,8 +51,8 @@ export default function AboutPage() {
                             and international fire protection standards. All our solutions are designed and implemented in full compliance with 
                             globally recognized frameworks, such as the National Fire Protection Association (NFPA) and British Standards (BS).
 
-                            We don’t just meet requirements—we exceed them. Whether it’s a simple alarm system or a complex suppression network, 
-                            our focus is on delivering custom-engineered, reliable, and compliant fire protection systems tailored to each client's 
+                            We don&apos;t just meet requirements—we exceed them. Whether it&apos;s a simple alarm system or a complex suppression network, 
+                            our focus is on delivering custom-engineered, reliable, and compliant fire protection systems tailored to each client&apos;s 
                             unique needs.
                         </p>
                     </div>
@@ -74,7 +73,7 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent>
             <p className="text-lg">
-              To be our customers' first choice in the building services industry by consistently exceeding expectations, delivering innovative 
+              To be our customers&apos; first choice in the building services industry by consistently exceeding expectations, delivering innovative 
               and technology-driven solutions, achieving operational excellence, fostering lasting partnerships, and upholding the highest 
               standards of quality, safety, integrity, and ethical business practices across every project we undertake.
             </p>
@@ -147,12 +146,12 @@ export default function AboutPage() {
       </div>
       
       {/* Call to Action */}
-      <Alert className="bg-primary/5 border border-primary/20 my-12">
-        <Briefcase className="h-5 w-5" />
+      <Alert className="bg-primary-black/10 border border-primary/20 my-12">
+        <Briefcase className="scale-125 mt-1.5" />
         <AlertTitle className="text-xl">Ready to work with us?</AlertTitle>
         <AlertDescription className="mt-2 flex flex-col md:flex-row gap-4 items-start md:items-center">
           <p className="text-lg">
-            Let's collaborate on your next engineering project and achieve exceptional results together.
+            Let&apos;s collaborate on your next engineering project and achieve exceptional results together.
           </p>
           <Button className="md:ml-auto">Contact Us</Button>
         </AlertDescription>

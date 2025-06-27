@@ -20,7 +20,7 @@ function Hero() {
 	const [showControls, setShowControls] = React.useState(false);
 	
 	// Store autoplay plugin reference
-	const autoplayRef = useRef<any>(null);
+	const autoplayRef = useRef<ReturnType<typeof Autoplay>>(null);
 
 	const Images = [
 		{
@@ -101,7 +101,7 @@ function Hero() {
 			delay: 5000, // 5 seconds between slides
 			stopOnInteraction: false, // Don't stop autoplay on user interaction
 			stopOnMouseEnter: false, // Don't stop autoplay when mouse enters carousel area
-			rootNode: (emblaRoot: any) => emblaRoot.parentElement, // Use parent element as root
+			rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement, // Use parent element as root
 		}),
 		[]
 	);
@@ -128,14 +128,18 @@ function Hero() {
 				<div className="absolute inset-0 z-0">
 					<Carousel 
 						className="w-full h-full" 
-						opts={{ loop: true, skipSnaps: false, dragFree: false }} 
+						opts={{ 
+							loop: true,
+							dragFree: true,
+							containScroll: "trimSnaps",
+						 }} 
 						plugins={[autoplayPlugin]} 
 						setApi={setApi}
 					>
-						<CarouselContent className="h-full">
+						<CarouselContent className="h-full [&>*]:pl-0 [&>*]:pt-0 -ml-0 -mt-0">
 							{Images.map((image) => (
-								<CarouselItem key={image.id} className="h-full">
-									<div className="relative max-h-screen overflow-hidden">
+								<CarouselItem key={image.id} className="h-full pl-0 pt-0">
+									<div className="relative max-h-screen">
 										<Image
 											src={image.src}
 											alt={image.alt}
@@ -220,7 +224,7 @@ function Hero() {
 							Protecting lives, assets, and infrastructure for over 12 years.
 						</p>
 						<p className="text-lg text-primary-white/80 mb-8">
-							As Sri Lanka's trusted fire safety provider, we deliver compliant,
+							As Sri Lanka&apos;s trusted fire safety provider, we deliver compliant,
 							end-to-end solutions from design and installation to ongoing
 							maintenance.
 						</p>
