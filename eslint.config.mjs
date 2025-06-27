@@ -10,6 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Add ignores for the Prisma generated directory
+  {
+    ignores: ["**/generated/prisma/**/*"]
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 

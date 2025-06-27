@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // Register the ScrollTrigger plugin with GSAP
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function LenisScroll() {
@@ -60,9 +60,9 @@ export default function LenisScroll() {
 		return () => {
 			// Clean up Lenis
 			lenis.destroy();
-			
+
 			// Clean up ScrollTrigger - using the correct method
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 		};
 	}, []);
 

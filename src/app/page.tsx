@@ -7,11 +7,11 @@ import ContactUs from "@/components/contact-us";
 
 export default function Home() {
 	return (
-			<div>
-				<Hero />
-				<Inspiration />
-				<Services />
-				<ContactUs />
-			</div>
+		<div>
+			<Hero />
+			<Inspiration />
+			<Services />
+			<ContactUs />
+		</div>
 	);
 }
