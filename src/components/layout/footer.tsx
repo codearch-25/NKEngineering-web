@@ -24,8 +24,8 @@ export default function Footer() {
 								/>
 							</div>
 							<p className="text-primary-black/70 mb-4 max-w-md">
-								Providing innovative engineering solutions since 2010. We&apos;re
-								committed to excellence and customer satisfaction.
+								Providing innovative engineering solutions since 2010.
+								We&apos;re committed to excellence and customer satisfaction.
 							</p>
 							<div className="flex space-x-4">
 								<Link
@@ -103,17 +103,26 @@ export default function Footer() {
 							</h3>
 							<ul className="space-y-3">
 								<li className="flex items-center gap-2">
-									<MdLocationOn size={30} className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5" />
+									<MdLocationOn
+										size={30}
+										className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5"
+									/>
 									<span className="text-primary-black/70">
 										123 Engineering Ave, Suite 100
 									</span>
 								</li>
 								<li className="flex items-center gap-2">
-									<MdPhone size={30} className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5" />
+									<MdPhone
+										size={30}
+										className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5"
+									/>
 									<span className="text-primary-black/70">(555) 123-4567</span>
 								</li>
 								<li className="flex items-center gap-2">
-									<MdEmail size={30} className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5" />
+									<MdEmail
+										size={30}
+										className="shrink-0 text-primary-maroon bg-primary-maroon/20 rounded-full p-1.5"
+									/>
 									<span className="text-primary-black/70">
 										info@nkengineering.com
 									</span>

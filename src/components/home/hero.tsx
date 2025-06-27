@@ -4,7 +4,7 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	type CarouselApi
+	type CarouselApi,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -18,7 +18,7 @@ function Hero() {
 	const [showLeftIcon, setShowLeftIcon] = React.useState(false);
 	const [showRightIcon, setShowRightIcon] = React.useState(false);
 	const [showControls, setShowControls] = React.useState(false);
-	
+
 	// Store autoplay plugin reference
 	const autoplayRef = useRef<ReturnType<typeof Autoplay>>(null);
 
@@ -45,7 +45,7 @@ function Hero() {
 			height: 2000,
 		},
 	];
-	
+
 	const scrollPrev = React.useCallback(() => {
 		api?.scrollPrev();
 		// Restart autoplay after user interaction
@@ -66,15 +66,18 @@ function Hero() {
 		}, 50);
 	}, [api]);
 
-	const scrollTo = React.useCallback((index: number) => {
-		api?.scrollTo(index);
-		// Restart autoplay after user interaction
-		setTimeout(() => {
-			if (autoplayRef.current && autoplayRef.current.reset) {
-				autoplayRef.current.reset();
-			}
-		}, 50);
-	}, [api]);
+	const scrollTo = React.useCallback(
+		(index: number) => {
+			api?.scrollTo(index);
+			// Restart autoplay after user interaction
+			setTimeout(() => {
+				if (autoplayRef.current && autoplayRef.current.reset) {
+					autoplayRef.current.reset();
+				}
+			}, 50);
+		},
+		[api],
+	);
 
 	// Track the current slide
 	React.useEffect(() => {
@@ -85,7 +88,7 @@ function Hero() {
 		const onSelect = () => {
 			setCurrent(api.selectedScrollSnap());
 		};
-		
+
 		api.on("select", onSelect);
 		api.on("reInit", onSelect);
 
@@ -103,19 +106,19 @@ function Hero() {
 			stopOnMouseEnter: false, // Don't stop autoplay when mouse enters carousel area
 			rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement, // Use parent element as root
 		}),
-		[]
+		[],
 	);
-	
+
 	// Create plugin instance
 	const autoplayPlugin = React.useMemo(() => {
 		const plugin = Autoplay(autoplayOptions);
 		autoplayRef.current = plugin;
 		return plugin;
 	}, [autoplayOptions]);
-	
+
 	return (
 		<div>
-			<section 
+			<section
 				className="relative min-h-screen"
 				onMouseEnter={() => setShowControls(true)}
 				onMouseLeave={() => {
@@ -126,14 +129,14 @@ function Hero() {
 			>
 				{/* Full Screen Carousel */}
 				<div className="absolute inset-0 z-0">
-					<Carousel 
-						className="w-full h-full" 
-						opts={{ 
+					<Carousel
+						className="w-full h-full"
+						opts={{
 							loop: true,
 							dragFree: true,
 							containScroll: "trimSnaps",
-						 }} 
-						plugins={[autoplayPlugin]} 
+						}}
+						plugins={[autoplayPlugin]}
 						setApi={setApi}
 					>
 						<CarouselContent className="h-full [&>*]:pl-0 [&>*]:pt-0 -ml-0 -mt-0">
@@ -153,58 +156,66 @@ function Hero() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						
+
 						{/* Side navigation areas with hover effects */}
-						<div 
+						<div
 							className={cn(
 								"absolute left-0 top-0 h-full w-1/5 sm:w-1/4 z-10 cursor-pointer flex items-center px-2 sm:px-6 transition-opacity duration-300",
-								showControls ? "opacity-100" : "opacity-0"
+								showControls ? "opacity-100" : "opacity-0",
 							)}
 							onClick={scrollPrev}
 							onMouseEnter={() => setShowLeftIcon(true)}
 							onMouseLeave={() => setShowLeftIcon(false)}
 							aria-label="Previous slide"
 						>
-							<div 
+							<div
 								className={cn(
 									"rounded-full bg-primary-white/30 p-2 sm:p-3 transition-all duration-300",
-									showLeftIcon ? "opacity-100 scale-110" : "opacity-50 scale-100"
+									showLeftIcon
+										? "opacity-100 scale-110"
+										: "opacity-50 scale-100",
 								)}
 							>
 								<ChevronLeft className="text-primary-white h-5 w-5 sm:h-6 sm:w-6" />
 							</div>
 						</div>
-						<div 
+						<div
 							className={cn(
 								"absolute right-0 top-0 h-full w-1/5 sm:w-1/4 z-10 cursor-pointer flex items-center justify-end px-2 sm:px-6 transition-opacity duration-300",
-								showControls ? "opacity-100" : "opacity-0"
+								showControls ? "opacity-100" : "opacity-0",
 							)}
 							onClick={scrollNext}
 							onMouseEnter={() => setShowRightIcon(true)}
 							onMouseLeave={() => setShowRightIcon(false)}
 							aria-label="Next slide"
 						>
-							<div 
+							<div
 								className={cn(
 									"rounded-full bg-primary-white/30 p-2 sm:p-3 transition-all duration-300",
-									showRightIcon ? "opacity-100 scale-110" : "opacity-50 scale-100"
+									showRightIcon
+										? "opacity-100 scale-110"
+										: "opacity-50 scale-100",
 								)}
 							>
 								<ChevronRight className="text-primary-white h-5 w-5 sm:h-6 sm:w-6" />
 							</div>
 						</div>
-						
+
 						{/* Slide indicators */}
-						<div className={cn(
-							"absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-2 transition-opacity duration-300",
-							showControls ? "opacity-100" : "opacity-50"
-						)}>
+						<div
+							className={cn(
+								"absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-2 transition-opacity duration-300",
+								showControls ? "opacity-100" : "opacity-50",
+							)}
+						>
 							{Images.map((_, index) => (
 								<button
 									key={index}
 									className={cn(
 										"h-2 rounded-full transition-all",
-										index === current ? "w-8 bg-primary-white" : "w-2 bg-primary-white/50"
+										index === current
+											? "w-8 bg-primary-white"
+											: "w-2 bg-primary-white/50",
 									)}
 									onClick={() => scrollTo(index)}
 									aria-label={`Go to slide ${index + 1}`}
@@ -224,9 +235,9 @@ function Hero() {
 							Protecting lives, assets, and infrastructure for over 12 years.
 						</p>
 						<p className="text-lg text-primary-white/80 mb-8">
-							As Sri Lanka&apos;s trusted fire safety provider, we deliver compliant,
-							end-to-end solutions from design and installation to ongoing
-							maintenance.
+							As Sri Lanka&apos;s trusted fire safety provider, we deliver
+							compliant, end-to-end solutions from design and installation to
+							ongoing maintenance.
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4">
 							<Button
