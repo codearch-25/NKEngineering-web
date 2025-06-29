@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -11,10 +13,22 @@ import {
 	Building,
 } from "lucide-react";
 import Image from "next/image";
+import ModalContactForm from "@/components/contact-us/modal-contact-form";
 
 export default function AboutPage() {
+	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+	const openContactModal = () => setIsContactModalOpen(true);
+	const closeContactModal = () => setIsContactModalOpen(false);
+
 	return (
 		<div className="container mx-auto mt-28 px-4 py-12 space-y-10">
+			{/* Modal Contact Form */}
+			<ModalContactForm
+				isOpen={isContactModalOpen}
+				onClose={closeContactModal}
+			/>
+
 			{/* Hero Section */}
 			<div className="flex flex-col gap-6 items-center text-center max-w-3xl mx-auto mb-8">
 				<h1 className="text-4xl md:text-5xl font-bold text-primary-maroon uppercase">
@@ -181,15 +195,22 @@ export default function AboutPage() {
 			</div>
 
 			{/* Call to Action */}
-			<Alert className="bg-primary-black/10 border border-primary/20 my-12">
+			<Alert className="border border-primary-maroon text-primary-maroon my-12">
 				<Briefcase className="scale-125 mt-1.5" />
-				<AlertTitle className="text-xl">Ready to work with us?</AlertTitle>
+				<AlertTitle className="text-xl text-primary-maroon">
+					Ready to work with us?
+				</AlertTitle>
 				<AlertDescription className="mt-2 flex flex-col md:flex-row gap-4 items-start md:items-center">
-					<p className="text-lg">
+					<p className="text-lg text-primary-black">
 						Let&apos;s collaborate on your next engineering project and achieve
 						exceptional results together.
 					</p>
-					<Button className="md:ml-auto">Contact Us</Button>
+					<Button
+						className="md:ml-auto bg-primary-maroon"
+						onClick={openContactModal}
+					>
+						Contact Us
+					</Button>
 				</AlertDescription>
 			</Alert>
 		</div>

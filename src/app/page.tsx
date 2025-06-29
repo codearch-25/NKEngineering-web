@@ -3,7 +3,7 @@ import React from "react";
 import Hero from "@/components/home/hero";
 import Inspiration from "@/components/home/inspiration";
 import Services from "@/components/home/services";
-import ContactUs from "@/components/contact-us";
+import ContactUs from "@/components/home/contact-us";
 
 export default function Home() {
 	return (
