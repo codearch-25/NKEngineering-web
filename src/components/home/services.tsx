@@ -11,13 +11,13 @@ import { Button } from "@/components/ui/button";
 export default function Services() {
 	return (
 		<div>
-			<section id="services" className="py-12 md:py-20 bg-primary-black">
+			<section id="services" className="py-12 md:py-20">
 				<div className="container mx-auto px-4">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-white">
+						<h2 className="text-3xl md:text-4xl font-bold mb-4">
 							Our Products & Services
 						</h2>
-						<p className="text-lg text-primary-white/80 max-w-2xl mx-auto">
+						<p className="text-lg max-w-2xl mx-auto">
 							Comprehensive engineering solutions tailored to your industry and
 							specific requirements.
 						</p>
@@ -63,7 +63,7 @@ export default function Services() {
 						].map((service, index) => (
 							<Card
 								key={index}
-								className="h-full border-0 bg-primary-maroon/20 shadow-sm hover:shadow-md transition-shadow"
+								className="h-full border-0 bg-primary-maroon shadow-sm hover:shadow-md transition-shadow"
 							>
 								<CardHeader>
 									<div className="text-4xl mb-2">{service.icon}</div>
