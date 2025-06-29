@@ -3,7 +3,6 @@
 import ContactUsForm from "@/components/contact-us/contact-us-form";
 
 export default function ContactUs() {
-
 	return (
 		<section className="py-20 mb-10 px-4 md:px-8 max-w-[1440px] mx-auto">
 			<div className="grid md:grid-cols-7 gap-16">
