@@ -183,7 +183,7 @@ export default function AboutPage() {
 								<div className="p-3 rounded-full bg-primary-white/10 mb-4">
 									<Building className="h-6 w-6 text-primary-yellow" />
 								</div>
-								<h3 className="text-xl font-semibold mb-2">Innovation</h3>
+								<h3 className="text-xl font-semibold mb-2 text-primary-yellow">Innovation</h3>
 								<p>
 									We embrace innovative thinking and creative solutions to solve
 									complex engineering challenges effectively.

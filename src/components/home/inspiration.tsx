@@ -1,67 +1,53 @@
 import React from "react";
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardContent,
-	CardFooter,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { FaFileAlt, FaGlobe, FaWindowMaximize } from "react-icons/fa";
+import { FaFireExtinguisher } from "react-icons/fa6";
 
 export default function Inspiration() {
 	return (
-		<div>
-			<section id="inspiration" className="py-12 md:py-20">
-				<div className="container mx-auto px-4">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-black">
-							Inspiration & Innovation
-						</h2>
-						<p className="text-lg text-primary-black/70 max-w-2xl mx-auto">
-							Discover how our engineering solutions are shaping the industry
-							and creating new possibilities.
-						</p>
+		<div className="w-full bg-primary-maroon py-16">
+			<div className="container mx-auto px-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+					<div className="flex flex-col items-center text-center">
+						<div className="mb-3 text-primary-amber">
+							<FaFileAlt size={48} />
+						</div>
+						<h3 className="text-5xl font-bold mb-2 text-white">
+							300<span className="text-primary-amber">+</span>
+						</h3>
+						<p className="text-gray-300">Successfull Projects</p>
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-						{[
-							{
-								title: "Future Technology",
-								description:
-									"Exploring cutting-edge technologies that will shape tomorrow's engineering landscape.",
-							},
-							{
-								title: "Sustainable Solutions",
-								description:
-									"Creating environmentally conscious engineering solutions for a better planet.",
-							},
-							{
-								title: "Innovation Process",
-								description:
-									"Our unique approach to problem-solving and innovative engineering design.",
-							},
-						].map((item, index) => (
-							<Card key={index} className="h-full border-primary-amber/20">
-								<CardHeader>
-									<CardTitle className="text-primary-black">
-										{item.title}
-									</CardTitle>
-								</CardHeader>
-								<CardContent>
-									<p className="text-primary-black/70">{item.description}</p>
-								</CardContent>
-								<CardFooter>
-									<Button
-										variant="outline"
-										className="w-full border-primary-amber text-primary-black hover:bg-primary-amber/10"
-									>
-										Learn More
-									</Button>
-								</CardFooter>
-							</Card>
-						))}
+
+					<div className="flex flex-col items-center text-center">
+						<div className="mb-3 text-primary-amber">
+							<FaFireExtinguisher size={48} />
+						</div>
+						<h3 className="text-5xl font-bold mb-2 text-white">
+							93<span className="text-primary-amber">%+</span>
+						</h3>
+						<p className="text-gray-300">Trusted Client</p>
+					</div>
+
+					<div className="flex flex-col items-center text-center">
+						<div className="mb-3 text-primary-amber">
+							<FaGlobe size={48} />
+						</div>
+						<h3 className="text-5xl font-bold mb-2 text-white">
+							150<span className="text-primary-amber">+</span>
+						</h3>
+						<p className="text-gray-300">Trained Staff</p>
+					</div>
+
+					<div className="flex flex-col items-center text-center">
+						<div className="mb-3 text-primary-amber">
+							<FaWindowMaximize size={48} />
+						</div>
+						<h3 className="text-5xl font-bold mb-2 text-white">
+							12<span className="text-primary-amber">+</span>
+						</h3>
+						<p className="text-gray-300">Years Experience</p>
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
 	);
 }
