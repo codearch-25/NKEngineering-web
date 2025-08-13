@@ -1,0 +1,9 @@
+
+npm run format-write
+
+npm i
+
+git add .
+
+npm run build
+
