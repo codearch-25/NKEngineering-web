@@ -25,35 +25,35 @@ function Hero() {
 	const Images = [
 		{
 			id: 0,
-			src: "/images/fire-equi.webp",
+			src: "/images/gas-tanks-1.jpg",
 			alt: "Fire Engineering Professionals",
 			width: 2000,
 			height: 2000,
 		},
 		{
 			id: 1,
-			src: "/images/fire-engineer.jpg",
+			src: "/images/fire-system.jpg",
 			alt: "Fire Engineering Professionals",
 			width: 2000,
 			height: 2000,
 		},
 		{
 			id: 2,
-			src: "/images/fire-system.jpg",
+			src: "/images/gas-tanks.jpg",
 			alt: "Fire Protection Systems",
 			width: 2000,
 			height: 2000,
 		},
 		{
 			id: 3,
-			src: "/images/fire-equipment.jpg",
+			src: "/images/smoker1.jpg",
 			alt: "Fire Safety Equipment",
 			width: 2000,
 			height: 2000,
 		},
 		{
 			id: 4,
-			src: "/images/fire-smoker.jpg",
+			src: "/images/sprinklers.jpeg",
 			alt: "Fire Safety Equipment",
 			width: 2000,
 			height: 2000,
@@ -165,7 +165,7 @@ function Hero() {
 											className="object-cover w-full h-dvh"
 											priority={image.id === 1}
 										/>
-										<div className="absolute inset-0 bg-gradient-to-b from-black/50 to-primary-maroon/90 flex items-center justify-center"></div>
+										<div className="absolute inset-0 bg-gradient-to-l from-black/30 to-black/70 flex items-center justify-center"></div>
 									</div>
 								</CarouselItem>
 							))}
